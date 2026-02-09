@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.65
+Date: 2. 8. 2026
+  Bugfix:
+    - Reverted the reduced setting range for Beacon effect range bonus
+      Now supports the full range from 0 to 10 multiplied by quality level
+---------------------------------------------------------------------------------------------------
 Version: 2.0.64
 Date: 11. 16. 2025
   Changes:

@@ -291,8 +291,8 @@ data:extend({{
 	name = "beacon_supply_area_distance_bonus",
 	setting_type = "startup",
 	default_value = 1,
-	minimum_value = 0.1,
-	maximum_value = 1,
+	minimum_value = 0,
+	maximum_value = 10,
 	order = "g3"
 }, {
 	type = "double-setting",
