@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.66
+Date: 5. 22. 2026
+  Changes:
+    - Add support for Additional-Qualities variable "transcendent" tiers (for example: transcendentx1, transcendentx2, ...).
+    - Introduce new startup settings to control scaling for extra transcendent tiers:
+      - `transcendent_level_step` (INT): additive level increment per extra tier.
+      - `transcendent_science_pack_drain_step` (INT): percentage points subtracted per extra tier (clamped between 1 and 100).
+      - `transcendent_next_probability` (DOUBLE): Changes how often quality modules upgrade transcendent items to the next tier. (added for completeness, and to support the additional levels)
+      - `transcendent_next_probability_decay` (DOUBLE): multiplicative decay factor applied per extra tier to the base `next_probability`.
+    - Update `data-final-fixes.lua` to parse numbered transcendent names and compute level, lab drain, and next probability algorithmically.
+    - Add localization entries for the new settings.
+  Bugfix:
+    - Remove additional requirement for fork setting, now only requires SA or SE
+  Notes:
+    - Plain `transcendent` behavior is unchanged and treated as N = 0.
+    - There is no hard cap on supported extra tiers; prototype attributes are clamped where appropriate to remain safe.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.65
 Date: 2. 8. 2026
   Bugfix:

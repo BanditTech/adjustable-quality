@@ -502,7 +502,7 @@ data:extend({{
 	order = "m1"
 }})
 
-if mods["space-age"] or (mods["space-exploration"] and mods["quality-se"]) then
+if mods["space-age"] or mods["space-exploration"] then
 	data:extend({{
 		type = "double-setting",
 		name = "fork_chance_increase_per_quality_level_chain_active_trigger",
@@ -703,6 +703,14 @@ if mods["Additional-Qualities"] then
 		maximum_value = 255,
 		order = "b9e"
 	}, {
+		type = "double-setting",
+		name = "transcendent_next_probability",
+		setting_type = "startup",
+		default_value = 0.1,
+		minimum_value = 0.01,
+		maximum_value = 1.0,
+		order = "b9f"
+	}, {
 		type = "int-setting",
 		name = "mythic_science_pack_drain",
 		setting_type = "startup",
@@ -742,6 +750,30 @@ if mods["Additional-Qualities"] then
 		minimum_value = 1,
 		maximum_value = 100,
 		order = "j4e"
+	}, {
+		type = "int-setting",
+		name = "transcendent_level_step",
+		setting_type = "startup",
+		default_value = 1,
+		minimum_value = 0,
+		maximum_value = 255,
+		order = "b9g"
+	}, {
+		type = "int-setting",
+		name = "transcendent_science_pack_drain_step",
+		setting_type = "startup",
+		default_value = 0,
+		minimum_value = 0,
+		maximum_value = 100,
+		order = "j4f"
+	}, {
+		type = "double-setting",
+		name = "transcendent_next_probability_decay",
+		setting_type = "startup",
+		default_value = 0.9,
+		minimum_value = 0.0,
+		maximum_value = 1.0,
+		order = "b9h"
 	}})
 end
 

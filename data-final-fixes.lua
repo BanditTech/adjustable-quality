@@ -101,13 +101,33 @@ for i, obj in pairs(data.raw["quality"]) do
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("eternal_science_pack_drain") / 100
 			end
-		elseif i == "transcendent" then
-			obj.level = setting("transcendent_level")
-			obj.localised_name = {"", setting("transcendent_level_name")}
-			if lab_drain then
-				obj.science_pack_drain_multiplier = setting("transcendent_science_pack_drain") / 100
+			elseif i == "transcendent" or i:match("^transcendentx%d+$") or i:match("^transcendent%d+$") then
+				local n = i:match("^transcendentx(%d+)$") or i:match("^transcendent(%d+)$")
+				local suffix = tonumber(n) or 0
+				local base = setting("transcendent_level")
+				local step = setting("transcendent_level_step") or 1
+				obj.level = base + suffix * step
+				if suffix > 0 then
+					obj.localised_name = {"", setting("transcendent_level_name"), " ", tostring(suffix)}
+				else
+					obj.localised_name = {"", setting("transcendent_level_name")}
+				end
+				if lab_drain then
+					local baseDrain = setting("transcendent_science_pack_drain")
+					local drainStep = setting("transcendent_science_pack_drain_step") or 0
+					local drain = baseDrain - suffix * drainStep
+					obj.science_pack_drain_multiplier = clamp(0.01, 1, drain / 100)
+				end
+				if settings.startup["transcendent_next_probability"] then
+					local baseProb = settings.startup["transcendent_next_probability"].value
+					local decay = setting("transcendent_next_probability_decay") or 1.0
+					if suffix > 0 then
+						obj.next_probability = baseProb * (decay ^ suffix)
+					else
+						obj.next_probability = baseProb
+					end
+				end
 			end
-		end
 	elseif mods["Quality-Plus-Plus"] then
 		if i == "mythical" then
 			obj.level = setting("mythical_level")
