@@ -232,11 +232,15 @@ end
 
 for _, obj in pairs(data.raw["assembling-machine"]) do
 	obj.quality_affects_energy_usage = setting("quality_affects_energy_usage_crafting")
+	-- This is a temporary fix to prevent polution from being removed by the above setting, will be resolved in Version 2.1 and can be removed
+	if setting("quality_affects_energy_usage_crafting") then obj.energy_usage_quality_multiplier = { normal=1 } end
 	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_crafting") end
 end
 
 for _, obj in pairs(data.raw["furnace"]) do
 	obj.quality_affects_energy_usage = setting("quality_affects_energy_usage_furnace")
+	-- This is a temporary fix to prevent polution from being removed by the above setting, will be resolved in Version 2.1 and can be removed
+	if setting("quality_affects_energy_usage_furnace") then obj.energy_usage_quality_multiplier = { normal=1 } end
 	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_furnace") end
 end
 
