@@ -244,4 +244,13 @@ for _, obj in pairs(data.raw["furnace"]) do
 	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_furnace") end
 end
 
+if data.raw["rocket-silo"] then
+	for _, obj in pairs(data.raw["rocket-silo"]) do
+	obj.quality_affects_energy_usage = setting("quality_affects_energy_usage_silo")
+	-- This is a temporary fix to prevent polution from being removed by the above setting, will be resolved in Version 2.1 and can be removed
+	if setting("quality_affects_energy_usage_silo") then obj.energy_usage_quality_multiplier = { normal=1 } end
+	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_silo") end
+	end
+end
+
 data.raw["utility-constants"]["default"].maximum_quality_jump = setting("maximum_quality_jump")
