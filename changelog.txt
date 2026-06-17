@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.68
+Date: 6. 16. 2026
+  Changes:
+    - Rocket Silo adjustment points for Modules and Energy Usage.
+      - Contribution via Pull Request by @Eulenberg
+      - Silo Energy Usage option is inactive until 2.1.0 releases since it currently has no effect.
+    - Add option to re-enable quality modules in asteroid reprocessing for users who want to keep it.
+      - This option becomes available once 2.1.0 releases.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.67
 Date: 5. 23. 2026
   Bugfix:

@@ -573,17 +573,27 @@ if mods["space-age"] then
 		order = "n6"
 		}, {
 		type = "bool-setting",
+		name = "quality_affects_module_slots_silo",
+		setting_type = "startup",
+		default_value = false,
+		order = "n8"
+	}})
+end
+
+if (mods["space-age"] and mods["base"] >= "2.1.0") then
+	data:extend({{
+		type = "bool-setting",
 		name = "quality_affects_energy_usage_silo",
 		setting_type = "startup",
 		default_value = false,
 		order = "n7"
 		}, {
 		type = "bool-setting",
-		name = "quality_affects_module_slots_silo",
+		name = "quality_affects_asteroid_reprocessing",
 		setting_type = "startup",
 		default_value = false,
-		order = "n8"
-	}})
+		order = "n9"
+		}})
 end
 
 if (mods["Additional-Qualities"] or mods["Quality-Plus-Plus"]) then
