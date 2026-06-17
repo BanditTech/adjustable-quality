@@ -571,6 +571,18 @@ if mods["space-age"] then
 		minimum_value = 0,
 		maximum_value = 1,
 		order = "n6"
+		}, {
+		type = "bool-setting",
+		name = "quality_affects_energy_usage_silo",
+		setting_type = "startup",
+		default_value = false,
+		order = "n7"
+		}, {
+		type = "bool-setting",
+		name = "quality_affects_module_slots_silo",
+		setting_type = "startup",
+		default_value = false,
+		order = "n8"
 	}})
 end
 
