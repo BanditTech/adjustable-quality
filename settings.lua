@@ -38,7 +38,7 @@ data:extend({{
 	setting_type = "startup",
 	default_value = 0,
 	minimum_value = 0,
-	maximum_value = 20,
+	maximum_value = 255,
 	order = "b1b"
 }, {
 	type = "double-setting",
@@ -61,7 +61,7 @@ data:extend({{
 	setting_type = "startup",
 	default_value = 1,
 	minimum_value = 1,
-	maximum_value = 20,
+	maximum_value = 255,
 	order = "b2b"
 }, {
 	type = "double-setting",
@@ -84,7 +84,7 @@ data:extend({{
 	setting_type = "startup",
 	default_value = 2,
 	minimum_value = 1,
-	maximum_value = 20,
+	maximum_value = 255,
 	order = "b3b"
 }, {
 	type = "double-setting",
@@ -107,7 +107,7 @@ data:extend({{
 	setting_type = "startup",
 	default_value = 3,
 	minimum_value = 1,
-	maximum_value = 20,
+	maximum_value = 255,
 	order = "b4b"
 }, {
 	type = "double-setting",
@@ -130,7 +130,7 @@ data:extend({{
 	setting_type = "startup",
 	default_value = 5,
 	minimum_value = 1,
-	maximum_value = 20,
+	maximum_value = 255,
 	order = "b5b"
 }, {
 	type = "double-setting",

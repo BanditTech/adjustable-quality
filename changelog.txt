@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.69
+Date: 6. 18. 2026
+  Changes:
+    - Increase allowed quality level range to 255 from 20 by request
+      - Keep in mind that using such high levels will likely cause game issues
+    - Final update version for 2.0 clients
+      - Supporting 2.1 will require incrementing factorio_version
+---------------------------------------------------------------------------------------------------
 Version: 2.0.68
 Date: 6. 16. 2026
   Changes:
