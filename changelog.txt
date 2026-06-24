@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.01
+Date: 6. 24. 2026
+  Notes:
+    - It is recommended to reset specific modified values and re-adjust.
+      - Quality next probabilities are 10x the previous values.
+      - Some options are now default true (wagon scaling)
+    - If you find any issues with the current release please let me know!
+      - You can open a github ticket, or make a post on the mod page.
+  Changes:
+    - Updated settings to represent their new 2.1 default values
+    - Added support for the following:
+      - Agricultural Tower modules
+      - Rocket Silo speed adjustments
+      - Spoilage modifier
+      - Cargo wagon inventory changes
+      - Locomotive speed adjustments
+      - Quality level chain probability
+      - Global module effect modifiers
+      - Asteroid reprocessing (was inactive previously)
+---------------------------------------------------------------------------------------------------
 Version: 2.0.69
 Date: 6. 18. 2026
   Changes:
