@@ -200,7 +200,7 @@ for i, obj in pairs(data.raw["quality"]) do
 	-- Weapon
 	obj.range_multiplier = clamp(1, 3, 1 + setting("range_multiplier") * obj.level)
 	-- Spoilage
-	obj.spoil_ticks_multiplier = setting("spoil_ticks_multiplier") * obj.default_multiplier
+	if mods["space-age"] then obj.spoil_ticks_multiplier = setting("spoil_ticks_multiplier") * obj.default_multiplier end
 	-- Trains
 	if default_multi and obj.level < 5 then
 		obj.cargo_wagon_inventory_size_multiplier = 1 + 0.25 * obj.level
