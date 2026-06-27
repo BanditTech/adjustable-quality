@@ -2,6 +2,13 @@
 Version: 2.1.02
 Date: 6. 25. 2026
   Bugfix:
+    - Module quality % adjustments were not working
+      - Module effects were divided by 10, and were adjusted to match
+    - Beacon power usage multiplier clamp required > 0.01 not >=
+---------------------------------------------------------------------------------------------------
+Version: 2.1.02
+Date: 6. 25. 2026
+  Bugfix:
     - Fix for spoil ticks multiplier causing crash without space age
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.01

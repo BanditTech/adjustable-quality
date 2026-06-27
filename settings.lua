@@ -486,7 +486,7 @@ data:extend({
 		type = "double-setting",
 		name = "quality_module_1",
 		setting_type = "startup",
-		default_value = 0.1,
+		default_value = 0.01,
 		minimum_value = 0,
 		maximum_value = 1,
 		order = "c0a"
@@ -494,7 +494,7 @@ data:extend({
 		type = "double-setting",
 		name = "quality_module_2",
 		setting_type = "startup",
-		default_value = 0.2,
+		default_value = 0.02,
 		minimum_value = 0,
 		maximum_value = 1,
 		order = "c0b"
@@ -502,7 +502,7 @@ data:extend({
 		type = "double-setting",
 		name = "quality_module_3",
 		setting_type = "startup",
-		default_value = 0.25,
+		default_value = 0.025,
 		minimum_value = 0,
 		maximum_value = 1,
 		order = "c0c"
@@ -510,7 +510,7 @@ data:extend({
 		type = "double-setting",
 		name = "speed_module_1",
 		setting_type = "startup",
-		default_value = -0.1,
+		default_value = -0.01,
 		minimum_value = -1,
 		maximum_value = 0,
 		order = "c1a"
@@ -518,7 +518,7 @@ data:extend({
 		type = "double-setting",
 		name = "speed_module_2",
 		setting_type = "startup",
-		default_value = -0.15,
+		default_value = -0.015,
 		minimum_value = -1,
 		maximum_value = 0,
 		order = "c1b"
@@ -526,7 +526,7 @@ data:extend({
 		type = "double-setting",
 		name = "speed_module_3",
 		setting_type = "startup",
-		default_value = -0.25,
+		default_value = -0.025,
 		minimum_value = -1,
 		maximum_value = 0,
 		order = "c1c"

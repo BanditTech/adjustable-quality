@@ -11,12 +11,12 @@ local function clamp(min, max, value)
 end
 
 local quality_mapping = {
-	[0.1] = setting("quality_module_1"),
-	[0.2] = setting("quality_module_2"),
-	[0.25] = setting("quality_module_3"),
-	[-0.1] = setting("speed_module_1"),
-	[-0.15] = setting("speed_module_2"),
-	[-0.25] = setting("speed_module_3")
+	[0.01] = setting("quality_module_1"),
+	[0.02] = setting("quality_module_2"),
+	[0.025] = setting("quality_module_3"),
+	[-0.01] = setting("speed_module_1"),
+	[-0.015] = setting("speed_module_2"),
+	[-0.025] = setting("speed_module_3")
 }
 
 local lab_drain = setting("lab_uses_quality_drain_modifier")
@@ -168,7 +168,7 @@ for i, obj in pairs(data.raw["quality"]) do
 	obj.default_multiplier = 1 + setting("default_multiplier") * obj.level
 	obj.tool_durability_multiplier = 1 + setting("tool_durability_multiplier") * obj.level
 	-- Beacon
-	obj.beacon_power_usage_multiplier = clamp(0.01, 1000, 1 - setting("beacon_power_usage_reduction") * obj.level)
+	obj.beacon_power_usage_multiplier = clamp(0.011, 1000, 1 - setting("beacon_power_usage_reduction") * obj.level)
 	obj.beacon_supply_area_distance_bonus = clamp(0, 64, setting("beacon_supply_area_distance_bonus") * obj.level)
 	obj.beacon_module_slots_bonus = setting("beacon_module_slots_bonus") * obj.level
 	-- Mining
