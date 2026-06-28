@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.1.02
-Date: 6. 25. 2026
+Version: 2.1.03
+Date: 6. 28. 2026
   Bugfix:
     - Module quality % adjustments were not working
       - Module effects were divided by 10, and were adjusted to match
