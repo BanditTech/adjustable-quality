@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.04
+Date: 9. 17. 2026
+  Changes:
+    - Now you have two distinct options for scaling Science or Repair durability instead of one for both.
+    - Added QualityPrototype::science_capacity_multiplier.
+      - This replaces the previous "tool durability" setting for modifying science.
+      - To properly migrate you should copy your modifications to science capacity.
+    - QualityPrototype::tool_durability_multiplier no longer affects science packs.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.03
 Date: 6. 28. 2026
   Bugfix:

@@ -16,12 +16,20 @@ data:extend({
 		order = "a0"
 	}, {
 		type = "double-setting",
-		name = "tool_durability_multiplier",
+		name = "science_capacity_multiplier",
 		setting_type = "startup",
 		default_value = 1,
 		minimum_value = 0.01,
 		maximum_value = 10,
 		order = "a1"
+	}, {
+		type = "double-setting",
+		name = "tool_durability_multiplier",
+		setting_type = "startup",
+		default_value = 1,
+		minimum_value = 0.01,
+		maximum_value = 10,
+		order = "a2"
 	}, {
 		type = "int-setting",
 		name = "maximum_quality_jump",
@@ -29,7 +37,7 @@ data:extend({
 		default_value = 255,
 		minimum_value = 1,
 		maximum_value = 255,
-		order = "a2"
+		order = "a3"
 	}
 })
 

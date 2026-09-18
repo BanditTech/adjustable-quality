@@ -167,6 +167,7 @@ for i, obj in pairs(data.raw["quality"]) do
 	-- General
 	obj.default_multiplier = 1 + setting("default_multiplier") * obj.level
 	obj.tool_durability_multiplier = 1 + setting("tool_durability_multiplier") * obj.level
+	obj.science_capacity_multiplier = 1 + setting("science_capacity_multiplier") * obj.level
 	-- Beacon
 	obj.beacon_power_usage_multiplier = clamp(0.011, 1000, 1 - setting("beacon_power_usage_reduction") * obj.level)
 	obj.beacon_supply_area_distance_bonus = clamp(0, 64, setting("beacon_supply_area_distance_bonus") * obj.level)
