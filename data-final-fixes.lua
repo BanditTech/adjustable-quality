@@ -55,6 +55,7 @@ for i, obj in pairs(data.raw["quality"]) do
 			obj.science_pack_drain_multiplier = setting("uncommon_science_pack_drain") / 100
 		end
 		obj.next_probability = setting("uncommon_next_probability")
+		obj.chain_probability = setting("uncommon_chain_probability")
 		obj.localised_name = {"", setting("uncommon_level_name")}
 	elseif i == "rare" then
 		obj.level = setting("rare_level")
@@ -62,6 +63,7 @@ for i, obj in pairs(data.raw["quality"]) do
 			obj.science_pack_drain_multiplier = setting("rare_science_pack_drain") / 100
 		end
 		obj.next_probability = setting("rare_next_probability")
+		obj.chain_probability = setting("rare_chain_probability")
 		obj.localised_name = {"", setting("rare_level_name")}
 	elseif i == "epic" then
 		obj.level = setting("epic_level")
@@ -69,6 +71,7 @@ for i, obj in pairs(data.raw["quality"]) do
 			obj.science_pack_drain_multiplier = setting("epic_science_pack_drain") / 100
 		end
 		obj.next_probability = setting("epic_next_probability")
+		obj.chain_probability = setting("epic_chain_probability")
 		obj.localised_name = {"", setting("epic_level_name")}
 	elseif i == "legendary" then
 		obj.level = setting("legendary_level")
@@ -76,11 +79,15 @@ for i, obj in pairs(data.raw["quality"]) do
 			obj.science_pack_drain_multiplier = setting("legendary_science_pack_drain") / 100
 		end
 		obj.localised_name = {"", setting("legendary_level_name")}
-		if mods["Additional-Qualities"] or mods["Quality-Plus-Plus"] then obj.next_probability = setting("legendary_next_probability") end
+		if mods["Additional-Qualities"] or mods["Quality-Plus-Plus"] then
+			obj.next_probability = setting("legendary_next_probability")
+			obj.chain_probability = setting("legendary_chain_probability")
+		end
 	elseif mods["Additional-Qualities"] then
 		if i == "mythic" then
 			obj.level = setting("mythic_level")
 			obj.next_probability = setting("mythic_next_probability")
+			obj.chain_probability = setting("mythic_chain_probability")
 			obj.localised_name = {"", setting("mythic_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("mythic_science_pack_drain") / 100
@@ -88,6 +95,7 @@ for i, obj in pairs(data.raw["quality"]) do
 		elseif i == "relic" then
 			obj.level = setting("relic_level")
 			obj.next_probability = setting("relic_next_probability")
+			obj.chain_probability = setting("relic_chain_probability")
 			obj.localised_name = {"", setting("relic_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("relic_science_pack_drain") / 100
@@ -95,6 +103,7 @@ for i, obj in pairs(data.raw["quality"]) do
 		elseif i == "masterwork" then
 			obj.level = setting("masterwork_level")
 			obj.next_probability = setting("masterwork_next_probability")
+			obj.chain_probability = setting("masterwork_chain_probability")
 			obj.localised_name = {"", setting("masterwork_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("masterwork_science_pack_drain") / 100
@@ -102,6 +111,7 @@ for i, obj in pairs(data.raw["quality"]) do
 		elseif i == "eternal" then
 			obj.level = setting("eternal_level")
 			obj.next_probability = setting("eternal_next_probability")
+			obj.chain_probability = setting("eternal_chain_probability")
 			obj.localised_name = {"", setting("eternal_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("eternal_science_pack_drain") / 100
@@ -133,11 +143,21 @@ for i, obj in pairs(data.raw["quality"]) do
 					obj.next_probability = baseProb
 				end
 			end
+			if settings.startup["transcendent_chain_probability"] then
+				local baseProb = settings.startup["transcendent_chain_probability"].value
+				local decay = setting("transcendent_next_probability_decay") or 1.0
+				if suffix > 0 then
+					obj.chain_probability = baseProb * (decay ^ suffix)
+				else
+					obj.chain_probability = baseProb
+				end
+			end
 		end
 	elseif mods["Quality-Plus-Plus"] then
 		if i == "mythical" then
 			obj.level = setting("mythical_level")
 			obj.next_probability = setting("mythical_next_probability")
+			obj.chain_probability = setting("mythical_chain_probability")
 			obj.localised_name = {"", setting("mythical_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("mythical_science_pack_drain") / 100
@@ -145,6 +165,7 @@ for i, obj in pairs(data.raw["quality"]) do
 		elseif i == "masterwork" then
 			obj.level = setting("masterwork_level")
 			obj.next_probability = setting("masterwork_next_probability")
+			obj.chain_probability = setting("masterwork_chain_probability")
 			obj.localised_name = {"", setting("masterwork_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("masterwork_science_pack_drain") / 100
@@ -152,6 +173,7 @@ for i, obj in pairs(data.raw["quality"]) do
 		elseif i == "wondrous" then
 			obj.level = setting("wondrous_level")
 			obj.next_probability = setting("wondrous_next_probability")
+			obj.chain_probability = setting("wondrous_chain_probability")
 			obj.localised_name = {"", setting("wondrous_level_name")}
 			if lab_drain then
 				obj.science_pack_drain_multiplier = setting("wondrous_science_pack_drain") / 100
