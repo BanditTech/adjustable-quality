@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.05
+Date: 11. 08. 2026
+  Bugfix:
+    - Chain probability was not correctly wired into quality prototypes
+    - Default value guards added to select booleans:
+      - Module slot bonus for Beacon, Miner, Assembler, Furnace, Silo
+      - Energy usage for Assmembler, Furnace, Silo
+      - Mining radius for Miner
+      - Supply area for Beacon
+---------------------------------------------------------------------------------------------------
 Version: 2.1.04
 Date: 9. 17. 2026
   Changes:
