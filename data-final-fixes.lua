@@ -122,35 +122,24 @@ for i, obj in pairs(data.raw["quality"]) do
 			local base = setting("transcendent_level")
 			local step = setting("transcendent_level_step") or 1
 			obj.level = base + suffix * step
-			if suffix > 0 then
-				local name = setting("transcendent_level_name") .. " " .. tostring(suffix)
-				obj.localised_name = {"", name}
-			else
-				obj.localised_name = {"", setting("transcendent_level_name")}
-			end
+			local name = setting("transcendent_level_name")
+			if suffix > 0 then name = name .. " " .. tostring(suffix) end
+			obj.localised_name = {"", name}
 			if lab_drain then
 				local baseDrain = setting("transcendent_science_pack_drain")
 				local drainStep = setting("transcendent_science_pack_drain_step") or 0
 				local drain = baseDrain - suffix * drainStep
 				obj.science_pack_drain_multiplier = clamp(0.01, 1, drain / 100)
 			end
-			if settings.startup["transcendent_next_probability"] then
-				local baseProb = settings.startup["transcendent_next_probability"].value
-				local decay = setting("transcendent_next_probability_decay") or 1.0
-				if suffix > 0 then
-					obj.next_probability = baseProb * (decay ^ suffix)
-				else
-					obj.next_probability = baseProb
-				end
-			end
-			if settings.startup["transcendent_chain_probability"] then
-				local baseProb = settings.startup["transcendent_chain_probability"].value
-				local decay = setting("transcendent_next_probability_decay") or 1.0
-				if suffix > 0 then
-					obj.chain_probability = baseProb * (decay ^ suffix)
-				else
-					obj.chain_probability = baseProb
-				end
+			local baseProb = settings.startup["transcendent_next_probability"].value
+			local baseChainProb = settings.startup["transcendent_chain_probability"].value
+			local decay = setting("transcendent_next_probability_decay") or 1.0
+			if suffix > 0 then
+				obj.next_probability = baseProb * (decay ^ suffix)
+				obj.chain_probability = baseChainProb * (decay ^ suffix)
+			else
+				obj.next_probability = baseProb
+				obj.chain_probability = baseChainProb
 			end
 		end
 	elseif mods["Quality-Plus-Plus"] then
