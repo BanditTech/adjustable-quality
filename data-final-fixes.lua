@@ -264,10 +264,12 @@ if data.raw["chain-active-trigger"] then
 	for _, obj in pairs(data.raw["chain-active-trigger"]) do obj.fork_chance_increase_per_quality_level = setting("fork_chance_increase_per_quality_level_chain_active_trigger") end
 end
 
+local var1 = setting("quality_affects_module_slots_beacon")
+local var2 = setting("quality_affects_supply_area_distance_beacon")
 for _, obj in pairs(data.raw["beacon"]) do
 	obj.distribution_effectivity_bonus_per_quality_level = setting("distribution_effectivity_bonus_per_quality_level")
-	obj.quality_affects_module_slots = setting("quality_affects_module_slots_beacon")
-	obj.quality_affects_supply_area_distance = setting("quality_affects_supply_area_distance_beacon")
+	if var1 then obj.quality_affects_module_slots = var1 end
+	if var2 then obj.quality_affects_supply_area_distance = var2 end
 end
 
 if data.raw["asteroid-collector"] then
@@ -281,25 +283,33 @@ if data.raw["asteroid-collector"] then
 	end
 end
 
+var1 = setting("quality_affects_mining_radius")
+var2 = setting("quality_affects_module_slots_mining")
 for _, obj in pairs(data.raw["mining-drill"]) do
-	obj.quality_affects_mining_radius = setting("quality_affects_mining_radius")
-	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_mining") end
+	if var1 then obj.quality_affects_mining_radius = var1 end
+	if var2 and obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = var2 end
 end
 
+var1 = setting("quality_affects_energy_usage_crafting")
+var2 = setting("quality_affects_module_slots_crafting")
 for _, obj in pairs(data.raw["assembling-machine"]) do
-	obj.quality_affects_energy_usage = setting("quality_affects_energy_usage_crafting")
-	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_crafting") end
+	if var1 then obj.quality_affects_energy_usage = var1 end
+	if var2 and obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = var2 end
 end
 
+var1 = setting("quality_affects_energy_usage_furnace")
+var2 = setting("quality_affects_module_slots_furnace")
 for _, obj in pairs(data.raw["furnace"]) do
-	obj.quality_affects_energy_usage = setting("quality_affects_energy_usage_furnace")
-	if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_furnace") end
+	obj.quality_affects_energy_usage = var1
+	if var2 and obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = var2 end
 end
 
+var1 = setting("quality_affects_energy_usage_silo")
+var2 = setting("quality_affects_module_slots_silo")
 if data.raw["rocket-silo"] then
 	for _, obj in pairs(data.raw["rocket-silo"]) do
-		obj.quality_affects_energy_usage = setting("quality_affects_energy_usage_silo")
-		if obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = setting("quality_affects_module_slots_silo") end
+		if var1 then obj.quality_affects_energy_usage = var1 end
+		if var2 and obj.module_slots ~= nil and obj.module_slots > 0 then obj.quality_affects_module_slots = var2 end
 		obj.rocket_rising_speed_modifier_per_quality_level = setting("rocket_rising_speed_modifier_per_quality_level")
 		obj.rocket_engine_starting_speed_modifier_per_quality_level = setting("rocket_engine_starting_speed_modifier_per_quality_level")
 		obj.arms_speed_modifier_per_quality_level = setting("arms_speed_modifier_per_quality_level")
